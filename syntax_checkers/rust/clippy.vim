@@ -18,18 +18,28 @@ function! SyntaxCheckers_rust_clippy_IsAvailable() dict
 endfunction
 
 function! SyntaxCheckers_rust_clippy_GetLocList() dict
-	let makeprg = self.makeprgBuild({})
-
 	let errorformat =
 		\ '%E%f:%l:%c: %\d%#:%\d%# %.%\{-}error:%.%\{-} %m,'   .
 		\ '%W%f:%l:%c: %\d%#:%\d%# %.%\{-}warning:%.%\{-} %m,' .
 		\ '%C%f:%l %m,' .
 		\ '%-Z%.%#'
 
-	return SyntasticMake({
-		\ 'makeprg': makeprg,
-		\ 'cwd': expand('%:p:h'),
-		\ 'errorformat': errorformat })
+	if g:syntastic_rust_clippy_pedantic
+		let makeprg = self.makeprgBuild({})
+
+		return SyntasticMake({
+			\ 'makeprg': makeprg,
+			\ 'cwd': expand('%:p:h'),
+			\ 'errorformat': errorformat })
+	else
+		let makeprg = self.makeprgBuild({
+					\ 'post_args': ['--release', '--', '-Dclippy', '-Wclippy_pedantic'] })
+
+		return SyntasticMake({
+			\ 'makeprg': makeprg,
+			\ 'cwd': expand('%:p:h'),
+			\ 'errorformat': errorformat })
+	endif
 endfunction
 
 call g:SyntasticRegistry.CreateAndRegisterChecker({

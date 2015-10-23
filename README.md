@@ -4,11 +4,15 @@
 
 This is a vim plugin that provides [Rust][r] file detection, syntax highlighting, and (optional) autoformatting.
 
+This fork adds cargo support (runs `cargo rustc -Zno-trans`, which just checks the
+code and does not compile) and cargo-clippy support (requires [cargo-clippy][cl] to be
+installed and on your `$PATH`).
+
 ## Installation
 
 ### Using [Vundle][v]
 
-1. Add `Plugin 'rust-lang/rust.vim'` to `~/.vimrc`
+1. Add `Plugin 'jFransham/rust.vim'` to `~/.vimrc`
 2. `vim +PluginInstall +qall`
 
 *Note:* Vundle will not automatically detect Rust files properly if `filetype
@@ -26,6 +30,7 @@ git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust
 [vqs]: https://github.com/gmarik/vundle#quick-start
 [p]: https://github.com/tpope/vim-pathogen
 [nb]: https://github.com/Shougo/neobundle.vim
+[cl]: https://github.com/arcnmx/cargo-clippy
 
 ### Using [NeoBundle][nb]
 

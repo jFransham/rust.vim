@@ -25,15 +25,15 @@ function! SyntaxCheckers_rust_clippy_GetLocList() dict
 		\ '%-Z%.%#'
 
 	if g:syntastic_rust_clippy_pedantic
-		let makeprg = self.makeprgBuild({})
+		let makeprg = self.makeprgBuild({
+					\ 'post_args': ['--release', '--', '-Dclippy', '-Wclippy_pedantic'] })
 
 		return SyntasticMake({
 			\ 'makeprg': makeprg,
 			\ 'cwd': expand('%:p:h'),
 			\ 'errorformat': errorformat })
 	else
-		let makeprg = self.makeprgBuild({
-					\ 'post_args': ['--release', '--', '-Dclippy', '-Wclippy_pedantic'] })
+		let makeprg = self.makeprgBuild({})
 
 		return SyntasticMake({
 			\ 'makeprg': makeprg,

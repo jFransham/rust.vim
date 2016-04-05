@@ -1,0 +1,5 @@
+XSym
+0031
+688a62bcec198ff932d14f0a5dc7ea4a
+/Users/jef/.vim/bundle/rust.vim
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

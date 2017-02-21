@@ -22,7 +22,7 @@ details.
 ### Using [Pathogen][p]
 
 ```shell
-git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust.vim
+git clone --depth=1 https://github.com/jFransham/rust.vim.git ~/.vim/bundle/rust.vim
 ```
 
 [r]: https://www.rust-lang.org
@@ -34,7 +34,7 @@ git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust
 
 ### Using [NeoBundle][nb]
 
-1. Add `NeoBundle 'rust-lang/rust.vim'` to `~/.vimrc`
+1. Add `NeoBundle 'jFransham/rust.vim'` to `~/.vimrc`
 2. Re-open vim or execute `:source ~/.vimrc`
 
 ## Enabling autoformat
